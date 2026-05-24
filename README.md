@@ -1,4 +1,4 @@
-# Phishing Email Detection using Scikit-learn
+
 
 import pandas as pd
 import re
@@ -12,9 +12,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.pipeline import Pipeline
 
-# ==========================
-# Sample Dataset
-# ==========================
 
 data = {
     'email': [
@@ -85,9 +82,6 @@ class EmailFeatures(BaseEstimator, TransformerMixin):
         return np.array(features)
 
 
-# ==========================
-# Create Pipeline
-# ==========================
 
 pipeline=Pipeline([
 
@@ -111,9 +105,6 @@ pipeline=Pipeline([
 ])
 
 
-# ==========================
-# Split Dataset
-# ==========================
 
 X=df['email']
 y=df['label']
@@ -126,21 +117,14 @@ X_train,X_test,y_train,y_test= train_test_split(
 )
 
 
-# ==========================
-# Train Model
-# ==========================
 
 pipeline.fit(X_train,y_train)
 
-# ==========================
-# Prediction
-# ==========================
+
 
 predictions=pipeline.predict(X_test)
 
-# ==========================
-# Results
-# ==========================
+
 
 print("\nAccuracy:")
 print(accuracy_score(y_test,predictions))
@@ -154,9 +138,7 @@ print(classification_report(
     predictions
 ))
 
-# ==========================
-# Test New Email
-# ==========================
+
 
 new_email=[
 "URGENT! Your account is blocked. Click http://secure-login.com"
