@@ -37,9 +37,7 @@ data = {
 
 df = pd.DataFrame(data)
 
-# ==========================
-# Custom Feature Extractor
-# ==========================
+
 
 class EmailFeatures(BaseEstimator, TransformerMixin):
 
